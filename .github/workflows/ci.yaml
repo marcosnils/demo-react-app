@@ -23,3 +23,4 @@ jobs:
         run: docker logs $(docker ps -aq)
       - name: Stop Engine
         run: docker stop $(docker ps -aq)
+        
