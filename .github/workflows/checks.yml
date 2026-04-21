@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Hello
+      - name: Dagger checks
         uses: dagger/dagger-for-github@v8.4.0
         with:
           dagger-flags: "--cloud"
