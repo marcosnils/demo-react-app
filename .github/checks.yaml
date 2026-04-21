@@ -1,0 +1,23 @@
+name: Checks
+# Trigger the workflow on pushes to the main branch
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  run:
+    # Use Ubuntu latest runner
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Hello
+        uses: dagger/dagger-for-github@v8.4.0
+        with:
+          dagger-flags: "--cloud"
+          check: "**"
+          cloud-token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
+          version: "latest"
+
